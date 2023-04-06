@@ -14,3 +14,22 @@ javafx {
 
 group 'com.denalidtx.testify'
 version '2023.0.0'
+
+task copyDeps(type: Copy){
+    from configurations.runtimeClasspath
+    into 'build/depLibs'
+    //exclude 'jaxb-api*.jar'
+    //exclude 'jaxb-runtime*.jar'
+    //exclude 'javax.activation-api*.jar'
+}
+assemble.dependsOn(copyDeps)
+
+task deploy(type: Copy) {
+    from configurations.runtimeClasspath
+    from 'build/depLibs'
+    from 'build/libs'
+    into 'deploy/lib'
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+deploy.dependsOn(assemble)
