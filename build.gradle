@@ -1,0 +1,16 @@
+plugins {
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "16"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.media' ]
+}
+
+group 'com.denalidtx.testify'
+version '2023.0.0'

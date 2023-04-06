@@ -1,0 +1,4 @@
+rootProject.name = "Testify"
+
+include 'mixite.example.javafx'
+
